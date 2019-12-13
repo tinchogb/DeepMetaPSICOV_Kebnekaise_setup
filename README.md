@@ -13,9 +13,9 @@ This repo should let you setup DeepMetaPSICOV (DMP) in Kebnekaise.
 7. Purge your current modules and then load the module collection: `ml restore mgb-ml-DMP` \
   7.1. Check that all the modular are loaded: `ml`
 8. Go to DMP/ directory and run **run_DMP-Kebnekaiser-installation.sh**:
-  - Basic run it like this (MANDATORY positional parameters):
+  - Basic run like this (MANDATORY positional parameters):
   `./run_DMP-Kebnekaiser-installation.sh hhsuite-database-path blast-database-path`
-  - Full run it like this (Optional positional parameters):
+  - Full run like this (Optional positional parameters):
   `./run_DMP-Kebnekaiser-installation.sh hhsuite-database-path blast-database-path hhblits-threats psiblast-threats psicov-threats ccmpred-threats freecontact-threats ccmpred-time psicov-time`
 9. When you have run it, one file is created in that folder, called **old_unmodify_run_DMP.sh**. This is a copy from the real unmodify running script (**run_DMP.sh**). This **old_unmodify_run_DMP.sh** is just for backup if you missed something or you want to change other settings and run again step 8 (like change databases, threats, etc).
 10. If you need further information, you can open **run_DMP-Kebnekaiser-installation.sh** and read the first lines.
