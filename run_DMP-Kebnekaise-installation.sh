@@ -9,7 +9,7 @@
 
 # PRECONDITIONS: 
 #		Have loaded the following ml collection: mgb-ml-DMP
-#		Have installed DeepMetaPSICOV in one ~/pfs/$HOME/<YOUR-PATH> Kebnekaise folder.
+#		Have installed DeepMetaPSICOV in one ~/pfs/<YOUR-PATH> Kebnekaise folder.
 #		Have this script (run_DMP-Kebnekaiser-installation.sh) inside the DeepMetaPSICOV/ folder.
 
 	# Script arguments:
@@ -27,14 +27,14 @@
         #       9) psicov time in seconds            // number (int); default (86400)
 
 	# Basic run it like this:
-		# ./run_DMP-Kebnekaiser-installation.sh hhsuite-database-path blast-database-path
+		# ./run_DMP-Kebnekaiser-installation.sh [hhsuite-database-path] [blast-database-path]
         # Full run it like this:
-                # ./run_DMP-Kebnekaiser-installation.sh hhsuite-database-path blast-database-path hhblits-threats psiblast-threats psicov-threats ccmpred-threats freecontact-threats ccmpred-time psicov-time
+                # ./run_DMP-Kebnekaiser-installation.sh [hhsuite-database-path] [blast-database-path] [hhblits-threats] [psiblast-threats] [psicov-threats] [ccmpred-threats] [freecontact-threats] [ccmpred-time] [psicov-time]
 
 # OBSERVATIONS:
 	# In Kebnekaise Claudio has these databases to be used:
 	# For hhblits:
-	#	/pfs/nobackup/home/m/mgonzale/databases/uniclust30_2018_08/uniclust30_2018_08
+	#	/home/m/mgonzale/pfs/group-storage/databases/uniclust30_2018_08/uniclust30_2018_08
 	#	/home/c/cbass/pfs/databases/uniclust30_2017_04/uniclust30_2017_04
 	# For psiblast:
 	#	/pfs/nobackup/home/m/mircomic/databases/uniref/uniref90.fasta
@@ -61,7 +61,6 @@ fi
 
 
 ### Databases basenames of HHblits and PSI-BLAST
-#mkdir -p $HOME/databases/{hhblitsdb,blast}
 if [[ -x run_DMP.sh ]]
 then
 	# Before any change, make a copy of the script to edit
@@ -110,11 +109,13 @@ then
 	then
 		sed -i "s+hhblits_threads=4+hhblits_threads=${3}+g" run_DMP.sh
 	fi
+	
 	# Threads in psiblast
 	if [[ ! -z $4 ]]
 	then
         	sed -i "s+psiblast_threads=4+psiblast_threads=${4}+g" run_DMP.sh
 	fi
+	
 	# Threads in psicov
 	if [[ ! -z $5 ]]
 	then
