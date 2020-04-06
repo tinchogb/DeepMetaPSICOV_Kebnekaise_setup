@@ -10,7 +10,6 @@ This repo should let you setup DeepMetaPSICOV (DMP) in Kebnekaise.
 
 3. Clone this repository to one of your user folder.  
 Checking and creating if need it a possible user folder:  
-
 ```
 ~$ mkdir -p ~/pfs/softwares/<YOUR-PATH>
 ```  
@@ -30,7 +29,11 @@ Or using SSH:
 5. Check if you already have the hidden folder *~/.lmod.d* in your $HOME. If not, create it in your *~/pfs*, otherwise move it from $HOME to *~/pfs*. At the end, you should have this: *~/pfs/.lmod.d*.  
 ```
 ~$ if [[ -d ~/.lmod.d ]] ; then mv ~/.lmod.d ~/pfs/.lmod.d; else mkdir -p ~/pfs/.lmod.d; fi
-```  
+``` 
+  5.1. Make sure to create a symlink from the pfs/l.mod.d to your home directory
+```
+~$ ln -s /pfs/nobackup$HOME/.lmod.d $HOME/
+```
 6. From this cloned repository, move the file:  
   6.1. [**mgb-ml-DMP**](https://github.com/tinchogb/DeepMetaPSICOV_Kebnekaise_setup/mgb-ml-DMP) to *~/pfs/.lmod.d*  
 ```
@@ -39,13 +42,7 @@ Or using SSH:
   6.2. [**run_DMP-Kebnekaiser-installation.sh**](https://github.com/tinchogb/DeepMetaPSICOV_Kebnekaise_setup/run_DMP-Kebnekaiser-installation.sh) to DMP/ directory (defined in step 4)  
 ```
 ~$ if [[ -ef ~/pfs/softwares/<YOUR-PATH>/DeepMetaPSICOV_Kebnekaise_setup/run_DMP-Kebnekaiser-installation.sh ]] ; then mv ~/pfs/softwares/<YOUR-PATH>/DeepMetaPSICOV_Kebnekaise_setup/run_DMP-Kebnekaiser-installation.sh ~/pfs/softwares/<YOUR-PATH>/DeepMetaPSICOV; else echo "Check if your file path is correct.."; fi
-```  
-Make sure to create a symlink from the pfs/l.mod.d to your home directory;
 ```
-ln -s /pfs/nobackup$HOME/.lmod.d $HOME/
-```
-
-
 7. Purge your current modules at Kebnekaise and then load the module collection:\
   7.1. Purge modules
 ```
