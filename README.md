@@ -30,7 +30,7 @@ Or using SSH:
 ```
 ~$ if [[ -d ~/.lmod.d ]] ; then mv ~/.lmod.d ~/pfs/.lmod.d; else mkdir -p ~/pfs/.lmod.d; fi
 ``` 
-  5.1. Make sure to create a symlink from the pfs/l.mod.d to your home directory
+  5.1. Make sure to create a symlink from the *~/pfs/l.mod.d* to your home directory. This ensures that the module collections can be read from the batch system.
 ```
 ~$ ln -s /pfs/nobackup$HOME/.lmod.d $HOME/
 ```
